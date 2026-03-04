@@ -1,0 +1,445 @@
+ MASTER UI GENERATION PROMPT
+
+Design a complete UI system and full page set for a Nigerian grocery marketplace platform.
+
+The platform connects buyers and sellers within Nigeria to purchase groceries online.
+
+The design must be modern, clean, mobile-first for buyers, and responsive dashboard-style for sellers. Use realistic Nigerian grocery imagery and include the Nigerian currency symbol (₦).
+
+---
+
+## OVERALL DESIGN STYLE
+
+* Modern marketplace design
+* Mobile-first buyer experience
+* Responsive seller dashboard
+* Clean layout, soft shadows, rounded cards
+* High-quality realistic grocery image style
+* Friendly but professional color scheme
+* Strong contrast for readability
+* Clear status indicators and badges
+* Simple, intuitive UX
+* Focus on trust, clarity, and ease of shopping
+
+---
+
+# BUYER APP PAGES
+
+Create the following pages for buyers:
+
+---
+
+## 1. Landing / Home Page
+
+Include:
+
+* Location selector (city/area)
+* Large search bar
+* Category grid featuring Nigerian grocery categories:
+
+  * Staples & Grains
+  * Swallows & Flours
+  * Oils & Condiments
+  * Fresh Produce
+  * Proteins
+  * Beverages
+  * Dairy & Breakfast
+  * Household & Toiletries
+  * Baby & Personal Care
+* “Popular Today” section
+* “Deals” section
+* “Top Sellers Near You” section
+* Floating cart button with item count
+* Bottom navigation:
+
+  * Home
+  * Categories
+  * Cart
+  * Orders
+  * Profile
+
+---
+
+## 2. Categories Page
+
+Include:
+
+* Category list with subcategories
+* Quick filters:
+
+  * Fresh today
+  * Under ₦X
+  * Fast delivery
+  * Top rated
+* Sorting options:
+
+  * Price
+  * Rating
+  * Newest
+
+---
+
+## 3. Search Results Page
+
+Include:
+
+* Search input with suggestions (e.g., garri ijebu, tatashe, palm oil)
+* Product grid or list with:
+
+  * Product image
+  * Product name
+  * Price in ₦
+  * Unit type (paint, bag, bunch, tuber, crate)
+  * Rating
+  * Seller name
+  * Delivery area
+  * Add-to-cart quick button
+* Filter drawer:
+
+  * Price range
+  * Category
+  * Seller
+  * Delivery time
+  * Rating
+  * Availability
+* Empty state with suggested alternatives
+
+---
+
+## 4. Product Details Page
+
+Include:
+
+* Image gallery
+* Product name
+* Price in ₦
+* Unit/variant selector (paint, bag, bunch, tuber, crate)
+* Stock status
+* Delivery ETA
+* Seller card with:
+
+  * Store name
+  * Rating
+  * Verified badge
+  * View store button
+  * Chat seller button
+* Quantity stepper
+* Add to cart button
+* Substitution preference section:
+
+  * Allow substitutes
+  * Contact me
+  * No substitutes
+* Reviews preview
+* Similar items section
+
+---
+
+## 5. Store / Seller Page (Buyer View)
+
+Include:
+
+* Seller header with logo and rating
+* Coverage area
+* Delivery fee
+* Operating hours
+* Tabs:
+
+  * Products
+  * Reviews
+  * About
+* Sort and filter within store
+* Chat seller button
+
+---
+
+## 6. Cart Page
+
+Include:
+
+* Items grouped by seller
+* Quantity controls
+* Remove item option
+* Substitution notes per item
+* Delivery fee estimate
+* Total amount in ₦
+* Checkout button
+* Empty cart state
+
+---
+
+## 7. Checkout Page
+
+Include:
+
+* Delivery address selection
+* Add new address form
+* Delivery time slot selector
+* Phone confirmation
+* Payment method selection:
+
+  * Card
+  * Bank transfer
+  * USSD
+* Promo code input
+* Order summary
+* Total cost breakdown
+* Place order button
+* Loading state
+* Terms acknowledgment text
+
+---
+
+## 8. Orders List Page (Buyer)
+
+Include:
+
+* Tabs:
+
+  * Active
+  * Past
+* Order cards showing:
+
+  * Order number
+  * Seller name
+  * Total amount
+  * Status pill
+  * Date
+* Quick actions:
+
+  * Track
+  * Chat
+  * Reorder
+
+---
+
+## 9. Order Details & Real-Time Tracking Page
+
+Include:
+
+* Status timeline:
+
+  * Placed
+  * Confirmed
+  * Packing
+  * Dispatched
+  * Out for delivery
+  * Delivered
+* Real-time update feed
+* Items list
+* Substitution outcomes
+* Delivery address
+* Rider information (if applicable)
+* Chat seller button
+* Contact support button
+* Rate order section (after delivery)
+
+---
+
+## 10. Chat Page (Buyer)
+
+Include:
+
+* Conversation list
+* Chat window with:
+
+  * Message bubbles
+  * Timestamps
+  * Read indicators
+  * Quick reply templates
+* Report/block option
+
+---
+
+## 11. Buyer Profile Page
+
+Include:
+
+* Personal information
+* Phone/email verification status
+* Saved addresses
+* Payment methods
+* Notification preferences
+* Help & Support
+* Logout
+
+---
+
+# SELLER DASHBOARD PAGES
+
+Create responsive desktop-style dashboard pages for sellers.
+
+---
+
+## 1. Seller Onboarding
+
+Include:
+
+* Store name
+* Store description
+* Location and coverage
+* Delivery settings
+* Bank account details
+* Upload verification documents
+* Submit for approval button
+
+---
+
+## 2. Seller Dashboard Home
+
+Include:
+
+* Today's orders summary
+* Revenue overview
+* Low stock alerts
+* Quick actions:
+
+  * Add product
+  * Manage orders
+* Recent orders list
+
+---
+
+## 3. Products Management Page
+
+Include:
+
+* Product table or grid
+* Stock status
+* Price
+* Visibility toggle
+* Edit button
+* Bulk edit option
+* Search products
+
+---
+
+## 4. Add/Edit Product Page
+
+Include:
+
+* Product name
+* Category
+* Description
+* Unit type selector:
+
+  * Paint
+  * Bag
+  * Bunch
+  * Tuber
+  * Crate
+* Variants
+* Price in ₦
+* Stock quantity
+* Low stock threshold
+* Perishable toggle
+* Handling notes
+* Multi-image uploader with preview and reorder feature
+* Save product button
+
+---
+
+## 5. Seller Orders Page
+
+Include:
+
+* Tabs:
+
+  * New
+  * Preparing
+  * Dispatched
+  * Completed
+  * Cancelled
+* Order cards showing:
+
+  * Buyer name
+  * Address area
+  * Items
+  * Substitution preference
+* Status update buttons:
+
+  * Confirm
+  * Packing
+  * Dispatched
+
+---
+
+## 6. Seller Order Detail Page
+
+Include:
+
+* Items list
+* Substitution preference
+* Buyer chat button
+* Status controls
+* Printable picking list option
+
+---
+
+## 7. Seller Chat Page
+
+Include:
+
+* Conversation list
+* Chat interface optimized for handling multiple buyers
+* Quick reply options
+
+---
+
+## 8. Seller Reviews Page
+
+Include:
+
+* Rating average
+* Rating breakdown
+* Review list
+* Seller response option
+
+---
+
+## 9. Seller Settings Page
+
+Include:
+
+* Store information
+* Operating hours
+* Coverage zones
+* Delivery fees
+* Payout settings
+* Staff account management
+
+---
+
+# ADMIN DASHBOARD PAGES
+
+Include:
+
+1. Overview dashboard (GMV, orders, active sellers)
+2. Sellers management page (approve, suspend, verify)
+3. Orders & disputes page
+4. Listings moderation page
+5. Categories and homepage content management page
+
+---
+
+# REUSABLE UI COMPONENTS TO GENERATE
+
+* Product card
+* Seller card
+* Status pill
+* Timeline component
+* Filter drawer
+* Quantity stepper
+* Variant selector
+* Address card selector
+* Order card
+* Chat interface
+* Review component
+
+---
+
+Design everything as a cohesive, production-ready marketplace UI system for a Nigerian grocery platform with clear hierarchy, trust elements, strong usability, and real-world Nigerian grocery context.
+
+---
+
+If you'd like, I can also create a separate prompt that forces Stitch to generate proper design tokens (color system, spacing scale, typography scale, button system) so your UI remains consistent across all pages.
