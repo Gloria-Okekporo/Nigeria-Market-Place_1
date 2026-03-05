@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import { AuthButton } from "../auth/AuthButton";
 
 export function Header() {
     const router = useRouter();
@@ -41,13 +42,8 @@ export function Header() {
                         />
                     </div>
                 </form>
-                <div className="flex gap-2">
-                    <Link href="/search" className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-slate-900 text-sm font-bold hover:brightness-110 transition-all">
-                        <span>Start Shopping</span>
-                    </Link>
-                    <Link href="/seller-onboarding" className="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-                        <span>Sell</span>
-                    </Link>
+                <div className="flex gap-4 items-center">
+                    <AuthButton />
                 </div>
             </div>
         </header>
