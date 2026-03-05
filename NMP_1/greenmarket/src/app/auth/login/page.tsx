@@ -4,9 +4,24 @@ import { useState } from 'react'
 import { login } from '../actions'
 import { toast } from 'sonner'
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false)
+    const router = useRouter()
+    const supabase = createClient()
+
+    useEffect(() => {
+        const checkSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession()
+            if (session) {
+                router.push('/dashboard')
+            }
+        }
+        checkSession()
+    }, [supabase, router])
 
     async function handleSubmit(formData: FormData) {
         setLoading(true)

@@ -3,8 +3,10 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useState } from "react";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 export default function CheckoutPage() {
+    const supabase = createClientComponentClient()
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [isProcessing, setIsProcessing] = useState(false);
     const [orderComplete, setOrderComplete] = useState(false);
@@ -34,8 +36,8 @@ export default function CheckoutPage() {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        email: 'john.doe@example.com', // Mock email or take from state
-                        name: 'John Doe',
+                        email: 'user?.email,
+                        name: 'user?.email,',
                         orderId: newOrderId,
                         total: 21600
                     })

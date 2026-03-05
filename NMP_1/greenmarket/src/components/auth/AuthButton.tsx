@@ -39,7 +39,9 @@ export function AuthButton() {
                     className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                 >
                     <span className="material-symbols-outlined text-xl">person</span>
-                    <span className="text-sm font-bold truncate max-w-[100px]">{user.email?.split('@')[0]}</span>
+                    <span className="text-sm font-bold truncate max-w-[100px]">
+                        {user.user_metadata?.first_name || user.email?.split('@')[0]}
+                    </span>
                 </Link>
                 <button
                     onClick={() => logout()}

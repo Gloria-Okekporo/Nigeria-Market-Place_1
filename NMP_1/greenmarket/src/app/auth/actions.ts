@@ -12,11 +12,19 @@ export async function login(formData: FormData) {
         password: formData.get('password') as string,
     }
 
-    const { error } = await supabase.auth.signInWithPassword(data)
+    console.log('Attempting login for:', data.email)
+    const { data: signInData, error } = await supabase.auth.signInWithPassword(data)
 
     if (error) {
+        console.error('Login error details:', {
+            message: error.message,
+            status: error.status,
+            name: error.name
+        })
         return { error: error.message }
     }
+
+    console.log('Login successful for:', data.email)
 
     revalidatePath('/', 'layout')
     redirect('/dashboard')
@@ -29,6 +37,13 @@ export async function signup(formData: FormData) {
         const data = {
             email: formData.get('email') as string,
             password: formData.get('password') as string,
+            options: {
+                data: {
+                    first_name: formData.get('firstName') as string,
+                    last_name: formData.get('lastName') as string,
+                },
+                emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback`,
+            }
         }
 
         console.log('Attempting signup for:', data.email)

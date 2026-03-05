@@ -38,6 +38,7 @@ export default function SignupPage() {
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">First Name</label>
                                 <input
+                                    name="firstName"
                                     type="text"
                                     required
                                     placeholder="John"
@@ -47,6 +48,7 @@ export default function SignupPage() {
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Last Name</label>
                                 <input
+                                    name="lastName"
                                     type="text"
                                     required
                                     placeholder="Doe"

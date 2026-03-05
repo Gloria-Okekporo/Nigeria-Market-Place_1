@@ -5,6 +5,9 @@ import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+import { User } from "@supabase/supabase-js";
 
 export default function DashboardLayout({
     children,
@@ -13,11 +16,32 @@ export default function DashboardLayout({
 }) {
     const pathname = usePathname();
     const router = useRouter();
+    const [user, setUser] = useState<User | null>(null);
+    const supabase = createClient();
 
-    const handleLogout = () => {
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        };
+        fetchUser();
+    }, [supabase]);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
         toast.success("Logged out successfully");
         router.push("/");
     };
+
+    const userMetadata = user?.user_metadata || {};
+    const firstName = userMetadata.first_name || "";
+    const lastName = userMetadata.last_name || "";
+    const initials = (firstName && lastName)
+        ? `${firstName[0]}${lastName[0]}`.toUpperCase()
+        : (user?.email?.[0].toUpperCase() || "JD");
+    const fullName = (firstName && lastName)
+        ? `${firstName} ${lastName}`
+        : (user?.email || "John Doe");
 
     const NAV_LINKS = [
         { href: "/dashboard", icon: "person", label: "My Profile" },
@@ -38,10 +62,10 @@ export default function DashboardLayout({
                         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sticky top-24">
                             <div className="flex items-center gap-3 mb-8">
                                 <div className="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xl">
-                                    JD
+                                    {initials}
                                 </div>
                                 <div>
-                                    <h2 className="font-bold">John Doe</h2>
+                                    <h2 className="font-bold">{fullName}</h2>
                                     <p className="text-xs text-slate-500">Buyer Account</p>
                                 </div>
                             </div>
