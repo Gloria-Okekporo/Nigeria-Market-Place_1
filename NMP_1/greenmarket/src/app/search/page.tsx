@@ -7,11 +7,10 @@ import { MOCK_PRODUCTS, CATEGORIES } from "@/lib/mock-data";
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const resolvedParams = await searchParams;
-  const query = typeof resolvedParams?.q === 'string' ? resolvedParams.q : '';
-  const activeCategory = typeof resolvedParams?.category === 'string' ? resolvedParams.category : 'All Produce';
+  const query = typeof searchParams?.q === 'string' ? searchParams.q : '';
+  const activeCategory = typeof searchParams?.category === 'string' ? searchParams.category : 'All Produce';
 
   const filteredProducts = MOCK_PRODUCTS.filter((product) => {
     const matchesQuery = product.title.toLowerCase().includes(query.toLowerCase()) ||

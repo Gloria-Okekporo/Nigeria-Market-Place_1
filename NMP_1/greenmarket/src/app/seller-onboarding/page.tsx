@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function SellerOnboardingPage() {
@@ -145,9 +146,9 @@ export default function SellerOnboardingPage() {
                                         </label>
                                     </div>
 
-                                    <a href="/seller" className="w-full flex items-center justify-center py-4 mt-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg rounded-xl hover:scale-[1.02] transition-transform shadow-lg shadow-black/10">
+                                    <Link href="/seller" className="w-full flex items-center justify-center py-4 mt-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg rounded-xl hover:scale-[1.02] transition-transform shadow-lg shadow-black/10">
                                         Submit Application
-                                    </a>
+                                    </Link>
                                 </form>
                             </div>
                         )}

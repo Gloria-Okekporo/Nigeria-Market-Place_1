@@ -15,6 +15,7 @@ export default function SellerLayout({
         { href: "/seller", icon: "dashboard", label: "Dashboard" },
         { href: "/seller/inventory", icon: "inventory_2", label: "Inventory" },
         { href: "/seller/orders", icon: "shopping_cart", label: "Orders" },
+        { href: "/dashboard/chat", icon: "chat", label: "Messages" },
         { href: "/seller/reviews", icon: "star", label: "Reviews", fill: true },
         { href: "/seller/earnings", icon: "payments", label: "Earnings" },
         { href: "/seller/settings", icon: "settings", label: "Settings", bottom: true },

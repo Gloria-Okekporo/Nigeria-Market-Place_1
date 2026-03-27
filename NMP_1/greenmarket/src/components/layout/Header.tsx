@@ -25,7 +25,8 @@ export function Header() {
                 <div className="hidden lg:flex items-center gap-6">
                     <Link className="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/search">Browse Markets</Link>
                     <Link className="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/#how-it-works">How it Works</Link>
-                    <Link className="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/">About Us</Link>
+                    <Link className="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/about">About Us</Link>
+                    <Link className="text-primary text-sm font-bold hover:brightness-110 transition-all border border-primary/20 bg-primary/5 px-3 py-1 rounded-lg" href="/seller-onboarding">Sell on GreenMarket</Link>
                 </div>
             </div>
             <div className="flex flex-1 justify-end gap-4 items-center">

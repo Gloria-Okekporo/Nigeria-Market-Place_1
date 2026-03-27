@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 import { Toaster } from "sonner";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export default function RootLayout({
   children,
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} antialiased`}>
         {children}
+        <ChatWidget />
         <Toaster position="top-center" richColors />
       </body>
     </html>

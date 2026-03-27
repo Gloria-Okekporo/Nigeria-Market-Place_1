@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { toast } from "sonner";
 
 export function Footer() {
@@ -32,8 +33,8 @@ export function Footer() {
                 <div className="flex flex-col gap-4">
                     <h4 className="text-white font-bold uppercase text-xs tracking-widest">Company</h4>
                     <nav className="flex flex-col gap-2">
-                        <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>About Us</a>
-                        <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Contact Us</a>
+                        <a className="hover:text-primary transition-colors" href="/about">About Us</a>
+                        <a className="hover:text-primary transition-colors" href="/contact">Contact Us</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Careers</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Blog</a>
                     </nav>
@@ -41,7 +42,7 @@ export function Footer() {
                 <div className="flex flex-col gap-4">
                     <h4 className="text-white font-bold uppercase text-xs tracking-widest">Partner</h4>
                     <nav className="flex flex-col gap-2">
-                        <a className="hover:text-primary transition-colors" href="/seller-onboarding">Become a Seller</a>
+                        <Link className="hover:text-primary transition-colors" href="/seller-onboarding">Become a Seller</Link>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Partner Logistics</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Market Associations</a>
                     </nav>
@@ -49,7 +50,7 @@ export function Footer() {
                 <div className="flex flex-col gap-4">
                     <h4 className="text-white font-bold uppercase text-xs tracking-widest">Support</h4>
                     <nav className="flex flex-col gap-2">
-                        <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Help Center</a>
+                        <a className="hover:text-primary transition-colors" href="/contact">Help Center</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Returns Policy</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Terms of Service</a>
                         <a className="hover:text-primary transition-colors" href="#" onClick={handleDeadLink}>Privacy Policy</a>

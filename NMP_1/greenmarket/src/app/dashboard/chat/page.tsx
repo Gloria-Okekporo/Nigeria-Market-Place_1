@@ -43,13 +43,36 @@ const MESSAGES = [
 export default function ChatPage() {
     const [activeChat, setActiveChat] = useState(CHATS[0]);
     const [messageInput, setMessageInput] = useState("");
+    const [messages, setMessages] = useState(MESSAGES);
+    const [autoReply, setAutoReply] = useState(true);
 
     const handleSend = (e: React.FormEvent) => {
         e.preventDefault();
         if (!messageInput.trim()) return;
-        // In a real app we'd send this to Supabase
-        console.log("Sending:", messageInput);
+
+        const newMsg = {
+            id: messages.length + 1,
+            sender: "me",
+            text: messageInput,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+
+        setMessages(prev => [...prev, newMsg]);
+        const sentText = messageInput;
         setMessageInput("");
+
+        // Auto-Response Logic
+        if (autoReply) {
+            setTimeout(() => {
+                const responseMsg = {
+                    id: messages.length + 2,
+                    sender: "them",
+                    text: `Hello! Thanks for your inquiry about ${sentText.includes('Scotch') ? 'Scotch Bonnets' : 'our products'}. I'm currently busy on the farm, but I'll get back to you soon!`,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                };
+                setMessages(prev => [...prev, responseMsg]);
+            }, 1500);
+        }
     };
 
     return (
@@ -116,9 +139,20 @@ export default function ChatPage() {
                             <p className="text-xs text-slate-500">{activeChat.online ? 'Online' : 'Offline'}</p>
                         </div>
                     </div>
-                    <div className="flex gap-2 text-slate-400">
-                        <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"><span className="material-symbols-outlined text-xl">call</span></button>
-                        <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"><span className="material-symbols-outlined text-xl">more_vert</span></button>
+                    <div className="flex items-center gap-6">
+                        <div className="hidden lg:flex items-center gap-2">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Auto-Reply</span>
+                            <button
+                                onClick={() => setAutoReply(!autoReply)}
+                                className={`w-10 h-5 rounded-full relative transition-colors ${autoReply ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-700'}`}
+                            >
+                                <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-transform ${autoReply ? 'left-6' : 'left-1'}`}></div>
+                            </button>
+                        </div>
+                        <div className="flex gap-2 text-slate-400">
+                            <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"><span className="material-symbols-outlined text-xl">call</span></button>
+                            <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"><span className="material-symbols-outlined text-xl">more_vert</span></button>
+                        </div>
                     </div>
                 </div>
 
@@ -128,11 +162,11 @@ export default function ChatPage() {
                         <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-200 dark:bg-slate-800 px-3 py-1 rounded-full">Today</span>
                     </div>
 
-                    {MESSAGES.map(msg => (
+                    {messages.map(msg => (
                         <div key={msg.id} className={`flex max-w-[80%] ${msg.sender === 'me' ? 'self-end' : 'self-start'}`}>
                             <div className={`p-3 rounded-2xl text-sm ${msg.sender === 'me'
-                                    ? 'bg-primary text-slate-900 rounded-tr-sm'
-                                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-tl-sm'
+                                ? 'bg-primary text-slate-900 rounded-tr-sm'
+                                : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-tl-sm'
                                 }`}>
                                 {msg.text}
                                 <div className={`text-[10px] mt-1 text-right ${msg.sender === 'me' ? 'text-primary-800 opacity-60' : 'text-slate-400'}`}>

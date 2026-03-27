@@ -72,7 +72,7 @@ export default function BuyerProfilePage() {
                 </div>
 
                 <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-                    <button type="button" className="px-8 py-3 bg-primary text-slate-900 font-bold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-primary/20">
+                    <button type="submit" className="px-8 py-3 bg-primary text-slate-900 font-bold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-primary/20">
                         Save Changes
                     </button>
                 </div>

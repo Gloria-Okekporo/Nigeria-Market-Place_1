@@ -4,15 +4,14 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { SellerCard } from "@/components/ui/SellerCard";
-import { useState, use } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 import { MOCK_PRODUCTS } from "@/lib/mock-data";
 import { notFound } from "next/navigation";
 
-export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-    const resolvedParams = use(params);
-    const product = MOCK_PRODUCTS.find(p => String(p.id) === resolvedParams.id);
+export default function ProductDetailPage({ params }: { params: { id: string } }) {
+    const product = MOCK_PRODUCTS.find(p => String(p.id) === params.id);
 
     if (!product) {
         notFound();
