@@ -3,10 +3,10 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useState } from "react";
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from "@/lib/supabase/client";
 
 export default function CheckoutPage() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [isProcessing, setIsProcessing] = useState(false);
     const [orderComplete, setOrderComplete] = useState(false);
@@ -32,14 +32,16 @@ export default function CheckoutPage() {
 
             // Attempt to send confirmation email
             try {
+                const { data: { user } } = await supabase.auth.getUser();
+
                 await fetch('/api/email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        email: 'user?.email,
-                        name: 'user?.email,',
+                        email: user?.email,
+                        name: user?.user_metadata?.first_name || user?.email,
                         orderId: newOrderId,
-                        total: 21600
+                        total: total
                     })
                 });
             } catch (error) {
