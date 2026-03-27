@@ -38,7 +38,6 @@ export async function POST(req: NextRequest) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     email: "admin@greenmarket.com.ng", // Placeholder admin email
-                    name: "Admin",
                     type: "contact_notification",
                     userEmail: email,
                     name: name,
